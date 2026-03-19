@@ -17,7 +17,16 @@
   overflow-x: hidden;
 }
 /* ANNOUNCEMENT */
-.dl-ann { background: var(--gbg); text-align: center; padding: 10px; font-size: 13px; color: var(--g); font-weight: 500; }
+.dl-ann { background: #1D9E75; text-align: center; padding: 9px; font-size: 13px; color: #fff; font-weight: 500; }
+/* HEADER */
+.dl-header { background: #fff; border-bottom: 1.5px solid var(--bd); padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 999; }
+.dl-header-logo svg { height: 54px; width: auto; }
+.dl-header-nav { display: flex; gap: 32px; }
+.dl-header-nav a { text-decoration: none; color: #111; font-size: 14px; font-weight: 600; transition: color .2s; }
+.dl-header-nav a:hover { color: var(--g); }
+.dl-header-cart { background: var(--g); color: #fff; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; transition: background .2s; }
+.dl-header-cart:hover { background: var(--gd); }
+@media (max-width: 768px) { .dl-header { padding: 0 16px; } .dl-header-nav { display: none; } .dl-header-logo svg { height: 40px; } }
 /* HERO */
 .dl-hero { display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; padding: 40px 24px 60px; gap: 40px; }
 .dl-gallery {}
@@ -73,7 +82,7 @@
 .dl-ticker-wrap { overflow: hidden; background: #111; padding: 11px 0; }
 .dl-ticker { display: flex; gap: 48px; white-space: nowrap; animation: dl-tick 22s linear infinite; }
 .dl-ticker span { font-size: 13px; color: #fff; font-weight: 500; }
-.dl-ticker span::before { content: "★  "; color: var(--g); }
+.dl-ticker span::before { content: "‚òÖ  "; color: var(--g); }
 @keyframes dl-tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 /* SECTIONS */
 .dl-sec { padding: 68px 24px; }
@@ -182,7 +191,44 @@
 <div class="dl-wrap">
 
 <!-- BARRE ANNONCE -->
-<div class="dl-ann">🚚 Livraison gratuite dès 50 € &nbsp;|&nbsp; Remboursé sous 30 jours si pas satisfait</div>
+<!-- HEADER -->
+<header class="dl-header">
+  <div class="dl-header-logo">
+    <svg width="320" height="80" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="400" rx="40" fill="#1D9E75"/>
+      <rect x="16" y="16" width="1168" height="368" rx="30" fill="none" stroke="white" stroke-width="2" opacity="0.15"/>
+      <g transform="translate(210, 80)">
+        <circle cx="0" cy="28" r="30" fill="white"/>
+        <rect x="-9" y="58" width="18" height="18" rx="6" fill="white"/>
+        <path d="M-60 88 Q-28 76 0 76 Q28 76 60 88 Q68 96 62 110 Q56 122 42 118 L-42 118 Q-56 122 -62 110 Q-68 96 -60 88Z" fill="white"/>
+        <rect x="-26" y="118" width="52" height="76" rx="14" fill="white"/>
+        <line x1="0" y1="124" x2="0" y2="188" stroke="#1D9E75" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="-7" y="127" width="14" height="10" rx="2.5" fill="#1D9E75"/>
+        <rect x="-7" y="145" width="14" height="10" rx="2.5" fill="#1D9E75" opacity="0.78"/>
+        <rect x="-7" y="163" width="14" height="10" rx="2.5" fill="#1D9E75" opacity="0.52"/>
+        <rect x="-7" y="181" width="14" height="10" rx="2.5" fill="#1D9E75" opacity="0.3"/>
+        <rect x="44" y="10" width="22" height="7" rx="3.5" fill="white" opacity="0.72"/>
+        <rect x="52" y="2" width="7" height="22" rx="3.5" fill="white" opacity="0.72"/>
+        <path d="M-44 14 Q-62 -12 -78 14 Q-62 26 -44 14Z" fill="white" opacity="0.5"/>
+      </g>
+      <line x1="350" y1="60" x2="350" y2="340" stroke="white" stroke-width="1.5" opacity="0.25"/>
+      <text x="400" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="130" font-weight="700" fill="white" letter-spacing="-2">Dos<tspan font-style="italic">Libre</tspan></text>
+      <circle cx="952" cy="178" r="11" fill="white" opacity="0.55"/>
+      <text x="400" y="292" font-family="Georgia, serif" font-size="24" fill="white" letter-spacing="5" opacity="0.82">VOTRE POSTURE, NOTRE PRIORIT&#xC9;</text>
+      <line x1="400" y1="314" x2="1160" y2="314" stroke="white" stroke-width="1.2" opacity="0.22"/>
+    </svg>
+  </div>
+  <nav class="dl-header-nav">
+    <a href="/">Accueil</a>
+    <a href="/collections/all">Boutique</a>
+    <a href="/pages/faq">FAQ</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
+  <button class="dl-header-cart" onclick="document.getElementById('dl-cta-btn').scrollIntoView({behavior:'smooth'})">&#x1F6D2; Panier</button>
+</header>
+
+<!-- ANNOUNCEMENT -->
+<div class="dl-ann">&#x1F69A; Livraison gratuite d&egrave;s 50 &euro; &nbsp;|&nbsp; &#x2713; Rembours&eacute; sous 30 jours si pas satisfait</div>
 
 <!-- HERO PRODUIT -->
 <div class="dl-hero">
@@ -207,17 +253,17 @@
 
   <div class="dl-info">
     <div class="dl-stars">
-      <span class="dl-stars-ico">★★★★★</span>
-      <span class="dl-stars-txt">Noté 4.8 — clients satisfaits</span>
+      <span class="dl-stars-ico">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</span>
+      <span class="dl-stars-txt">Not√© 4.8 ‚Äî clients satisfaits</span>
     </div>
     <h1>{{ product.title }}</h1>
-    <p class="dl-tag">Un appareil discret qui vibre doucement pour vous rappeler de vous tenir droit — sans appli, sans contrainte. Beaucoup de nos clients constatent une vraie différence après quelques semaines d'utilisation régulière.</p>
+    <p class="dl-tag">Un appareil discret qui vibre doucement pour vous rappeler de vous tenir droit ‚Äî sans appli, sans contrainte. Beaucoup de nos clients constatent une vraie diff√©rence apr√®s quelques semaines d'utilisation r√©guli√®re.</p>
     <div class="dl-badges">
-      <div class="dl-badge">✓ Rappel par vibration</div>
-      <div class="dl-badge">✓ Sans application</div>
-      <div class="dl-badge">✓ Discret sous les vêtements</div>
-      <div class="dl-badge">✓ 38 g ultra léger</div>
-      <div class="dl-badge">✓ Tous âges</div>
+      <div class="dl-badge">‚úì Rappel par vibration</div>
+      <div class="dl-badge">‚úì Sans application</div>
+      <div class="dl-badge">‚úì Discret sous les v√™tements</div>
+      <div class="dl-badge">‚úì 38 g ultra l√©ger</div>
+      <div class="dl-badge">‚úì Tous √¢ges</div>
     </div>
 
     <!-- BUNDLE -->
@@ -230,31 +276,31 @@
             <svg viewBox="0 0 60 130" fill="none" width="34"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
           </div>
           <div class="dl-bc-info">
-            <div class="dl-bc-name">× 1 — Pour moi</div>
-            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p1">{{ product.price | money }}</span><span class="dl-bc-unit">/ unité</span></div>
+            <div class="dl-bc-name">√ó 1 ‚Äî Pour moi</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p1">{{ product.price | money }}</span><span class="dl-bc-unit">/ unit√©</span></div>
           </div>
           <div class="dl-radio"></div>
         </div>
       </div>
 
       <div class="dl-bc on" onclick="dlBundle(this,2)" data-qty="2">
-        <div class="dl-bc-tag">⭐ Le plus populaire</div>
+        <div class="dl-bc-tag">‚≠ê Le plus populaire</div>
         <div class="dl-bc-row">
           <div class="dl-bc-icons">
             <svg viewBox="0 0 60 130" fill="none" width="26"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
             <svg viewBox="0 0 60 130" fill="none" width="26"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
           </div>
           <div class="dl-bc-info">
-            <div class="dl-bc-name">× 2 — Moi + un proche</div>
-            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p2">—</span><span class="dl-bc-unit">soit -17% / unité</span></div>
-            <div class="dl-bc-save">🎁 Tu économises sur chaque unité</div>
+            <div class="dl-bc-name">√ó 2 ‚Äî Moi + un proche</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p2">‚Äî</span><span class="dl-bc-unit">soit -17% / unit√©</span></div>
+            <div class="dl-bc-save">üéÅ Tu √©conomises sur chaque unit√©</div>
           </div>
           <div class="dl-radio" style="border-color:#1D9E75;background:#1D9E75;box-shadow:inset 0 0 0 3px #fff;"></div>
         </div>
       </div>
 
       <div class="dl-bc" onclick="dlBundle(this,3)" data-qty="3">
-        <div class="dl-bc-tag gold">🔥 Meilleure valeur</div>
+        <div class="dl-bc-tag gold">üî• Meilleure valeur</div>
         <div class="dl-bc-row">
           <div class="dl-bc-icons">
             <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
@@ -262,9 +308,9 @@
             <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
           </div>
           <div class="dl-bc-info">
-            <div class="dl-bc-name">× 3 — Toute la famille</div>
-            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p3">—</span><span class="dl-bc-unit">soit -28% / unité</span></div>
-            <div class="dl-bc-save">🎁 Maximum d'économies</div>
+            <div class="dl-bc-name">√ó 3 ‚Äî Toute la famille</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p3">‚Äî</span><span class="dl-bc-unit">soit -28% / unit√©</span></div>
+            <div class="dl-bc-save">üéÅ Maximum d'√©conomies</div>
           </div>
           <div class="dl-radio"></div>
         </div>
@@ -276,14 +322,14 @@
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
       <input type="hidden" name="quantity" id="dl-qty" value="2">
       <button type="submit" class="dl-cta" id="dl-cta-btn">
-        AJOUTER AU PANIER — <span id="dl-cta-p">{{ product.price | money }}</span>
+        AJOUTER AU PANIER ‚Äî <span id="dl-cta-p">{{ product.price | money }}</span>
       </button>
     {%- endform -%}
 
     <div class="dl-trust">
-      <span>✓ Satisfait ou remboursé 30 jours</span>
-      <span>✓ Livraison sécurisée</span>
-      <span>✓ Service réactif</span>
+      <span>‚úì Satisfait ou rembours√© 30 jours</span>
+      <span>‚úì Livraison s√©curis√©e</span>
+      <span>‚úì Service r√©actif</span>
     </div>
     <div class="dl-pays">
       <span class="dl-pay">Visa</span><span class="dl-pay">Mastercard</span><span class="dl-pay">Apple Pay</span><span class="dl-pay">Google Pay</span><span class="dl-pay">Klarna</span>
@@ -295,8 +341,8 @@
         <div class="dl-acb">{{ product.description }}</div>
       </div>
       <div class="dl-aci">
-        <div class="dl-ach" onclick="this.parentElement.classList.toggle('on')">Spécifications <span class="ico">+</span></div>
-        <div class="dl-acb">Poids : 38 g — Batterie : 15 jours — Charge : USB-C — Matériau : TPU hypoallergénique — Résistance : IPX5</div>
+        <div class="dl-ach" onclick="this.parentElement.classList.toggle('on')">Sp√©cifications <span class="ico">+</span></div>
+        <div class="dl-acb">Poids : 38 g ‚Äî Batterie : 15 jours ‚Äî Charge : USB-C ‚Äî Mat√©riau : TPU hypoallerg√©nique ‚Äî R√©sistance : IPX5</div>
       </div>
     </div>
   </div>
@@ -305,21 +351,21 @@
 <!-- TICKER -->
 <div class="dl-ticker-wrap">
   <div class="dl-ticker">
-    <span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vêtements</span><span>Livraison gratuite dès 50 €</span><span>Remboursé sous 30 jours</span><span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vêtements</span><span>Livraison gratuite dès 50 €</span><span>Remboursé sous 30 jours</span>
+    <span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les v√™tements</span><span>Livraison gratuite d√®s 50 ‚Ç¨</span><span>Rembours√© sous 30 jours</span><span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les v√™tements</span><span>Livraison gratuite d√®s 50 ‚Ç¨</span><span>Rembours√© sous 30 jours</span>
   </div>
 </div>
 
-<!-- BÉNÉFICES -->
+<!-- B√âN√âFICES -->
 <section class="dl-sec">
   <div class="dl-cnt">
     <div class="dl-bens">
       <div class="dl-bens-txt">
         <h2>Un outil simple pour reprendre conscience <em>de votre dos</em></h2>
-        <p>La mauvaise posture s'installe progressivement. Le DosLibre ne fait pas de miracles — il vous rappelle simplement, tout au long de la journée, de vous redresser.</p>
-        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Un rappel en douceur</h4><p>Le capteur détecte quand vous vous voûtez et envoie une légère vibration. C'est vous qui redressez.</p></div></div>
-        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Zéro appli, zéro prise de tête</h4><p>Appuyez 2 secondes sur le bouton pour enregistrer votre posture idéale. C'est tout.</p></div></div>
-        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Invisible sous les vêtements</h4><p>38 g, fin et discret. Porté au bureau ou à la maison sans que personne ne le remarque.</p></div></div>
-        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>La régularité fait la différence</h4><p>30 à 60 min par jour. Beaucoup de nos clients remarquent un changement en 3 à 6 semaines.</p></div></div>
+        <p>La mauvaise posture s'installe progressivement. Le DosLibre ne fait pas de miracles ‚Äî il vous rappelle simplement, tout au long de la journ√©e, de vous redresser.</p>
+        <div class="dl-ben"><div class="dl-ben-ico">‚úì</div><div><h4>Un rappel en douceur</h4><p>Le capteur d√©tecte quand vous vous vo√ªtez et envoie une l√©g√®re vibration. C'est vous qui redressez.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">‚úì</div><div><h4>Z√©ro appli, z√©ro prise de t√™te</h4><p>Appuyez 2 secondes sur le bouton pour enregistrer votre posture id√©ale. C'est tout.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">‚úì</div><div><h4>Invisible sous les v√™tements</h4><p>38 g, fin et discret. Port√© au bureau ou √† la maison sans que personne ne le remarque.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">‚úì</div><div><h4>La r√©gularit√© fait la diff√©rence</h4><p>30 √† 60 min par jour. Beaucoup de nos clients remarquent un changement en 3 √† 6 semaines.</p></div></div>
       </div>
       <div class="dl-bens-img">
         <div class="dl-ring"></div><div class="dl-ring"></div><div class="dl-ring"></div>
@@ -332,13 +378,13 @@
 <!-- TIMELINE -->
 <section class="dl-sec">
   <div class="dl-cnt">
-    <h2 class="dl-h2">Votre progression, <em>étape par étape</em></h2>
+    <h2 class="dl-h2">Votre progression, <em>√©tape par √©tape</em></h2>
     <div class="dl-tl">
       <div class="dl-steps">
-        <div class="dl-step"><div class="dl-dot act"></div><h4>Jour 1</h4><p>Enregistrez votre posture idéale en appuyant sur le bouton. Prêt en moins de 30 secondes.</p></div>
-        <div class="dl-step"><div class="dl-dot"></div><h4>Jours 2 à 7</h4><p>Portez le DosLibre 30 à 60 min/jour. Les vibrations vous aident à prendre conscience de vos habitudes.</p></div>
-        <div class="dl-step"><div class="dl-dot"></div><h4>Semaines 2 à 3</h4><p>Vos muscles dorsaux se renforcent. Vous vous redressez instinctivement, même sans l'appareil.</p></div>
-        <div class="dl-step"><div class="dl-dot"></div><h4>Semaine 4+</h4><p>Votre posture s'améliore progressivement. Moins de tensions, plus d'énergie au quotidien.</p></div>
+        <div class="dl-step"><div class="dl-dot act"></div><h4>Jour 1</h4><p>Enregistrez votre posture id√©ale en appuyant sur le bouton. Pr√™t en moins de 30 secondes.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Jours 2 √† 7</h4><p>Portez le DosLibre 30 √† 60 min/jour. Les vibrations vous aident √† prendre conscience de vos habitudes.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Semaines 2 √† 3</h4><p>Vos muscles dorsaux se renforcent. Vous vous redressez instinctivement, m√™me sans l'appareil.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Semaine 4+</h4><p>Votre posture s'am√©liore progressivement. Moins de tensions, plus d'√©nergie au quotidien.</p></div>
       </div>
       <div class="dl-tl-img">
         <svg viewBox="0 0 60 130" fill="none" width="130"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><rect x="24" y="54" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.7"/><rect x="24" y="66" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.55"/><rect x="24" y="78" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.4"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
@@ -358,9 +404,9 @@
         <h2>Comment utiliser <span>votre DosLibre ?</span></h2>
         <p>Mise en route en moins de 30 secondes. Aucune technologie complexe.</p>
         <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Comment enregistrer ma posture ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Mettez-vous droit, puis appuyez sur le bouton central 2 secondes. Une vibration confirme l'enregistrement.</div></div>
-        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Où fixer l'appareil sur le dos ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Placez-le entre vos omoplates, contre la colonne vertébrale.</div></div>
-        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Comment charger l'appareil ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Via le câble USB-C fourni. Charge complète en 60 min pour 15 jours d'autonomie.</div></div>
-        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Combien de temps le porter par jour ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Commencez par 30 min/jour, augmentez progressivement jusqu'à 2-3 heures.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">O√π fixer l'appareil sur le dos ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Placez-le entre vos omoplates, contre la colonne vert√©brale.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Comment charger l'appareil ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Via le c√¢ble USB-C fourni. Charge compl√®te en 60 min pour 15 jours d'autonomie.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Combien de temps le porter par jour ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Commencez par 30 min/jour, augmentez progressivement jusqu'√† 2-3 heures.</div></div>
       </div>
     </div>
   </div>
@@ -370,28 +416,28 @@
 <section class="dl-sec">
   <div class="dl-cnt">
     <h2 class="dl-h2">DosLibre vs. Les Autres <em>Correcteurs</em></h2>
-    <p class="dl-sub">Voyez pourquoi le DosLibre est la solution la plus intelligente du marché.</p>
+    <p class="dl-sub">Voyez pourquoi le DosLibre est la solution la plus intelligente du march√©.</p>
     <div class="dl-cmp">
-      <div class="dl-cmp-hd"><div></div><div class="dl-cmp-col us">DosLibre<div style="font-size:11px;font-weight:400;opacity:.8;margin-top:2px;">✓ Original</div></div><div class="dl-cmp-col">Autres</div></div>
-      <div class="dl-cmp-row"><div class="dl-c-lbl">Rappel postural en temps réel</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
-      <div class="dl-cmp-row"><div class="dl-c-lbl">Aucune application requise</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
-      <div class="dl-cmp-row"><div class="dl-c-lbl">Vibrations personnalisées</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
-      <div class="dl-cmp-row"><div class="dl-c-lbl">Design discret sous les vêtements</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
-      <div class="dl-cmp-row"><div class="dl-c-lbl">Résultats constatés en 3-6 semaines</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+      <div class="dl-cmp-hd"><div></div><div class="dl-cmp-col us">DosLibre<div style="font-size:11px;font-weight:400;opacity:.8;margin-top:2px;">‚úì Original</div></div><div class="dl-cmp-col">Autres</div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Rappel postural en temps r√©el</div><div class="dl-c-chk us"><div class="dl-yes">‚úì</div></div><div class="dl-c-chk"><div class="dl-no">‚úó</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Aucune application requise</div><div class="dl-c-chk us"><div class="dl-yes">‚úì</div></div><div class="dl-c-chk"><div class="dl-no">‚úó</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Vibrations personnalis√©es</div><div class="dl-c-chk us"><div class="dl-yes">‚úì</div></div><div class="dl-c-chk"><div class="dl-no">‚úó</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Design discret sous les v√™tements</div><div class="dl-c-chk us"><div class="dl-yes">‚úì</div></div><div class="dl-c-chk"><div class="dl-no">‚úó</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">R√©sultats constat√©s en 3-6 semaines</div><div class="dl-c-chk us"><div class="dl-yes">‚úì</div></div><div class="dl-c-chk"><div class="dl-no">‚úó</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- TÉMOIGNAGES -->
+<!-- T√âMOIGNAGES -->
 <section class="dl-sec">
   <div class="dl-cnt">
     <h2 class="dl-h2" style="margin-bottom:28px;">Ce que disent nos clients</h2>
     <div class="dl-revs">
-      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">C</div><div><div class="dl-rev-name">Claire D.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Je l'oublie complètement sous mes vêtements. Ma posture s'est nettement améliorée en un mois.</p></div>
-      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">J</div><div><div class="dl-rev-name">Julien B.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Les vibrations sont douces mais efficaces. Je recommande vivement !</p></div>
-      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">S</div><div><div class="dl-rev-name">Sophie M.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Après 2 semaines, mes douleurs ont diminué. Je me tiens naturellement droit sans y penser.</p></div>
-      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">T</div><div><div class="dl-rev-name">Thomas R.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Pas besoin d'appli, c'est ce qui m'a convaincu. En une semaine j'avais déjà une meilleure posture.</p></div>
-      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">A</div><div><div class="dl-rev-name">Amina K.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Produit discret, efficace, livraison rapide. Exactement ce que je cherchais.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">C</div><div><div class="dl-rev-name">Claire D.</div><div class="dl-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div><p>Je l'oublie compl√®tement sous mes v√™tements. Ma posture s'est nettement am√©lior√©e en un mois.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">J</div><div><div class="dl-rev-name">Julien B.</div><div class="dl-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div><p>Les vibrations sont douces mais efficaces. Je recommande vivement !</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">S</div><div><div class="dl-rev-name">Sophie M.</div><div class="dl-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div><p>Apr√®s 2 semaines, mes douleurs ont diminu√©. Je me tiens naturellement droit sans y penser.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">T</div><div><div class="dl-rev-name">Thomas R.</div><div class="dl-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div><p>Pas besoin d'appli, c'est ce qui m'a convaincu. En une semaine j'avais d√©j√† une meilleure posture.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">A</div><div><div class="dl-rev-name">Amina K.</div><div class="dl-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div><p>Produit discret, efficace, livraison rapide. Exactement ce que je cherchais.</p></div>
     </div>
   </div>
 </section>
@@ -399,13 +445,13 @@
 <!-- FAQ -->
 <section class="dl-sec">
   <div class="dl-cnt">
-    <h2 class="dl-h2">Questions Fréquentes</h2>
+    <h2 class="dl-h2">Questions Fr√©quentes</h2>
     <p class="dl-sub">Tout ce que vous devez savoir avant d'acheter.</p>
     <div class="dl-faqs">
-      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Faut-il télécharger une application ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Non ! Aucune application, aucun smartphone nécessaire. Il fonctionne de manière totalement autonome.</div></div>
-      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Est-il confortable à porter toute la journée ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Oui. Ultra léger (38 g), en TPU hypoallergénique, il s'oublie sous les vêtements.</div></div>
-      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">En combien de temps voit-on des résultats ?<span class="dl-plus">+</span></div><div class="dl-faq-a">La plupart constatent une amélioration en 3 à 6 semaines d'utilisation régulière. Les résultats varient selon les personnes.</div></div>
-      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Pour quelle tranche d'âge est-il conçu ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Pour tous les adultes, quel que soit l'âge — jeunes actifs comme seniors.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Faut-il t√©l√©charger une application ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Non ! Aucune application, aucun smartphone n√©cessaire. Il fonctionne de mani√®re totalement autonome.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Est-il confortable √† porter toute la journ√©e ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Oui. Ultra l√©ger (38 g), en TPU hypoallerg√©nique, il s'oublie sous les v√™tements.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">En combien de temps voit-on des r√©sultats ?<span class="dl-plus">+</span></div><div class="dl-faq-a">La plupart constatent une am√©lioration en 3 √† 6 semaines d'utilisation r√©guli√®re. Les r√©sultats varient selon les personnes.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Pour quelle tranche d'√¢ge est-il con√ßu ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Pour tous les adultes, quel que soit l'√¢ge ‚Äî jeunes actifs comme seniors.</div></div>
     </div>
   </div>
 </section>
@@ -417,7 +463,7 @@
       <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
     </div>
     <div>
-      <div class="dl-sticky-t">{{ product.title }} — <span id="dl-sqty">2 appareils</span></div>
+      <div class="dl-sticky-t">{{ product.title }} ‚Äî <span id="dl-sqty">2 appareils</span></div>
       <div class="dl-sticky-p" id="dl-sp">{{ product.price | money }}</div>
     </div>
   </div>
@@ -428,7 +474,7 @@
 
 <script>
 var dlUp = {{ product.price }};
-function dlFmt(c){return(c/100).toFixed(2).replace('.',',')+' €';}
+function dlFmt(c){return(c/100).toFixed(2).replace('.',',')+' ‚Ç¨';}
 document.addEventListener('DOMContentLoaded',function(){
   var p2=dlFmt(Math.round(dlUp*2*0.83));
   var p3=dlFmt(Math.round(dlUp*3*0.72));
@@ -469,3 +515,4 @@ function dlImg(url,thumb){
   thumb.classList.add('active');
 }
 </script>
+
