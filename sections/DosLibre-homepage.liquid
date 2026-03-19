@@ -1,601 +1,279 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;500;600&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-.dlh-wrap *, .dlh-wrap *::before, .dlh-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
-.dlh-wrap {
-  --g: #1D9E75;
-  --gd: #178A64;
-  --gbg: #EDF7F3;
-  --bk: #111111;
-  --gr: #666666;
-  --wh: #FFFFFF;
+.dlh * { box-sizing: border-box; margin: 0; padding: 0; }
+.dlh {
+  --g: #1D9E75; --gd: #178A64; --gbg: #EDF7F3; --gr: #666;
   font-family: 'Nunito Sans', sans-serif;
-  color: #111;
-  background: #fff;
-  overflow-x: hidden;
+  color: #111; background: #fff; overflow-x: hidden;
 }
-
-/* ANNOUNCEMENT */
-.dlh-ann {
-  background: var(--g);
-  text-align: center;
-  padding: 10px;
-  font-size: 13px;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: .3px;
-}
-
-/* HERO */
-.dlh-hero {
-  min-height: 92vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  gap: 60px;
-}
-.dlh-hero-text {}
-.dlh-hero-pretitle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gbg);
-  color: var(--g);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 50px;
-  margin-bottom: 24px;
-  letter-spacing: .5px;
-}
-.dlh-hero-pretitle::before { content: "‚óè"; font-size: 8px; animation: dlh-blink 2s ease-in-out infinite; }
-@keyframes dlh-blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
-.dlh-hero-text h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 58px;
-  font-weight: 900;
-  line-height: 1.05;
-  margin-bottom: 20px;
-  color: #111;
-}
-.dlh-hero-text h1 em {
-  color: var(--g);
-  font-style: normal;
-  position: relative;
-}
-.dlh-hero-text h1 em::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--g);
-  border-radius: 2px;
-  opacity: .3;
-}
-.dlh-hero-sub {
-  font-size: 17px;
-  color: var(--gr);
-  line-height: 1.65;
-  margin-bottom: 36px;
-  max-width: 480px;
-}
-.dlh-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
-.dlh-btn-main {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--g);
-  color: #fff;
-  padding: 16px 32px;
-  border-radius: 50px;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  transition: background .2s, transform .1s;
-  letter-spacing: .5px;
-}
-.dlh-btn-main:hover { background: var(--gd); transform: translateY(-2px); }
-.dlh-btn-sec {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: #111;
-  padding: 16px 28px;
-  border-radius: 50px;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-  border: 2px solid #E0EDE8;
-  transition: border-color .2s;
-}
-.dlh-btn-sec:hover { border-color: var(--g); }
-.dlh-trust-pills { display: flex; gap: 10px; flex-wrap: wrap; }
-.dlh-trust-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--gr);
-  font-weight: 500;
-}
-.dlh-trust-pill::before { content: "‚úì"; color: var(--g); font-weight: 700; }
-
-/* HERO IMAGE */
-.dlh-hero-img {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.dlh-hero-card {
-  background: var(--gbg);
-  border-radius: 32px;
-  width: 100%;
-  height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.dlh-hero-card img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-}
-.dlh-hero-card::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(29,158,117,.15) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-}
-.dlh-floating-badge {
-  position: absolute;
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.1);
-  z-index: 3;
-}
-.dlh-floating-badge.top-left { top: 30px; left: -20px; }
-.dlh-floating-badge.bottom-right { bottom: 40px; right: -20px; }
-.dlh-badge-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; color: #111; }
-.dlh-badge-sub { font-size: 11px; color: var(--gr); margin-top: 2px; }
-.dlh-stars-small { color: var(--g); font-size: 11px; }
-
-/* TICKER */
-.dlh-ticker-wrap { overflow: hidden; background: #111; padding: 11px 0; }
+.dlh-ann { background: var(--g); text-align: center; padding: 10px; font-size: 13px; color: #fff; font-weight: 500; }
+.dlh-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; max-width: 1200px; margin: 0 auto; padding: 70px 40px; gap: 60px; min-height: 90vh; }
+.dlh-pretitle { display: inline-flex; align-items: center; gap: 8px; background: var(--gbg); color: var(--g); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 50px; margin-bottom: 24px; letter-spacing: .5px; }
+.dlh-dot { width: 8px; height: 8px; background: var(--g); border-radius: 50%; animation: dlh-blink 2s infinite; }
+@keyframes dlh-blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+.dlh-hero h1 { font-family: 'Outfit', sans-serif; font-size: 54px; font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+.dlh-hero h1 em { color: var(--g); font-style: normal; }
+.dlh-sub { font-size: 16px; color: var(--gr); line-height: 1.7; margin-bottom: 36px; max-width: 460px; }
+.dlh-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+.dlh-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--g); color: #fff; padding: 16px 32px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s, transform .15s; }
+.dlh-btn:hover { background: var(--gd); transform: translateY(-2px); }
+.dlh-btn-o { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #111; padding: 16px 28px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; border: 2px solid #E0EDE8; transition: border-color .2s; }
+.dlh-btn-o:hover { border-color: var(--g); }
+.dlh-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+.dlh-pill { font-size: 12px; color: var(--gr); font-weight: 500; display: flex; align-items: center; gap: 5px; }
+.dlh-pill::before { content: "‚úì"; color: var(--g); font-weight: 700; }
+.dlh-hero-img { position: relative; }
+.dlh-hero-card { border-radius: 32px; overflow: hidden; height: 560px; position: relative; }
+.dlh-hero-card img { width: 100%; height: 100%; object-fit: cover; }
+.dlh-hero-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(29,158,117,.15) 0%, transparent 60%); }
+.dlh-badge-float { position: absolute; background: #fff; border-radius: 16px; padding: 12px 16px; box-shadow: 0 8px 30px rgba(0,0,0,.12); z-index: 2; }
+.dlh-badge-float.tl { top: 24px; left: -16px; }
+.dlh-badge-float.br { bottom: 32px; right: -16px; }
+.dlh-bt { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; }
+.dlh-bs { font-size: 11px; color: var(--gr); margin-top: 2px; }
+.dlh-ss { color: var(--g); font-size: 12px; margin-bottom: 2px; }
+.dlh-ticker-wrap { overflow: hidden; background: #111; padding: 12px 0; }
 .dlh-ticker { display: flex; gap: 48px; white-space: nowrap; animation: dlh-tick 22s linear infinite; }
 .dlh-ticker span { font-size: 13px; color: #fff; font-weight: 500; }
 .dlh-ticker span::before { content: "‚òÖ  "; color: var(--g); }
-@keyframes dlh-tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* FEATURES */
+@keyframes dlh-tick { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 .dlh-sec { padding: 80px 40px; }
 .dlh-sec.bg { background: var(--gbg); }
 .dlh-cnt { max-width: 1100px; margin: 0 auto; }
 .dlh-h2 { font-family: 'Outfit', sans-serif; text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 12px; }
 .dlh-h2 em { color: var(--g); font-style: normal; }
 .dlh-h2-sub { text-align: center; color: var(--gr); font-size: 15px; margin-bottom: 52px; }
-.dlh-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.dlh-feat {
-  background: #fff;
-  border: 1.5px solid #E8F5F0;
-  border-radius: 20px;
-  padding: 28px 24px;
-  transition: transform .2s, box-shadow .2s;
-}
+.dlh-feats { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.dlh-feat { background: #fff; border: 1.5px solid #E8F5F0; border-radius: 20px; padding: 28px 22px; transition: transform .2s, box-shadow .2s; }
 .dlh-feat:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(29,158,117,.1); }
-.dlh-feat-icon {
-  width: 48px; height: 48px;
-  background: var(--gbg);
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-.dlh-feat h3 { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.dlh-feat-ico { font-size: 28px; margin-bottom: 14px; }
+.dlh-feat h3 { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
 .dlh-feat p { font-size: 13px; color: var(--gr); line-height: 1.6; }
-
-/* HOW IT WORKS */
-.dlh-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
-.dlh-steps::before {
-  content: '';
-  position: absolute;
-  top: 30px;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--g), var(--gbg));
-  z-index: 0;
-}
-.dlh-step-item { text-align: center; position: relative; z-index: 1; }
-.dlh-step-num {
-  width: 60px; height: 60px;
-  background: var(--g);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  color: #fff;
-  margin: 0 auto 16px;
-  border: 4px solid #fff;
-  box-shadow: 0 0 0 2px var(--g);
-}
-.dlh-step-item h4 { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-.dlh-step-item p { font-size: 13px; color: var(--gr); line-height: 1.5; }
-
-/* PRODUCT PREVIEW */
-.dlh-product-preview {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.dlh-prod-img {
-  background: var(--gbg);
-  border-radius: 24px;
-  height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.dlh-prod-img img { width: 85%; height: 85%; object-fit: contain; }
-.dlh-prod-text h2 { font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
-.dlh-prod-text h2 em { color: var(--g); font-style: italic; }
-.dlh-prod-text p { font-size: 15px; color: var(--gr); line-height: 1.7; margin-bottom: 28px; }
-.dlh-prod-points { margin-bottom: 32px; }
-.dlh-prod-point { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 14px; }
-.dlh-prod-point::before { content: "‚úì"; color: var(--g); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-.dlh-price-block { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.dlh-price { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 900; color: var(--g); }
-.dlh-price-from { font-size: 14px; color: var(--gr); }
-
-/* TESTIMONIALS */
-.dlh-revs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.dlh-rev {
-  background: #fff;
-  border: 1.5px solid #E8F5F0;
-  border-radius: 16px;
-  padding: 20px;
-}
-.dlh-rev-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.dlh-gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; height: 520px; }
+.dlh-gal { border-radius: 20px; overflow: hidden; }
+.dlh-gal img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.dlh-gal:hover img { transform: scale(1.04); }
+.dlh-gal:first-child { grid-row: 1 / 3; }
+.dlh-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; position: relative; }
+.dlh-steps::before { content: ''; position: absolute; top: 28px; left: 12%; right: 12%; height: 2px; background: linear-gradient(90deg, var(--g), var(--gbg)); }
+.dlh-step { text-align: center; position: relative; z-index: 1; }
+.dlh-step-n { width: 56px; height: 56px; background: var(--g); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 18px; color: #fff; margin: 0 auto 14px; border: 4px solid #fff; box-shadow: 0 0 0 2px var(--g); }
+.dlh-step h4 { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.dlh-step p { font-size: 12px; color: var(--gr); line-height: 1.5; }
+.dlh-prod { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.dlh-prod-img { border-radius: 24px; overflow: hidden; height: 480px; }
+.dlh-prod-img img { width: 100%; height: 100%; object-fit: cover; }
+.dlh-prod h2 { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+.dlh-prod h2 em { color: var(--g); font-style: italic; }
+.dlh-prod-txt p { font-size: 15px; color: var(--gr); line-height: 1.7; margin-bottom: 24px; }
+.dlh-pts { margin-bottom: 28px; }
+.dlh-pt { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; }
+.dlh-pt::before { content: "‚úì"; color: var(--g); font-weight: 700; flex-shrink: 0; }
+.dlh-price-lbl { font-family: 'Outfit', sans-serif; font-size: 13px; color: var(--gr); margin-bottom: 4px; }
+.dlh-price-val { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 900; color: var(--g); margin-bottom: 20px; }
+.dlh-revs { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.dlh-rev { background: #fff; border: 1.5px solid #E8F5F0; border-radius: 16px; padding: 20px; }
+.dlh-rev-h { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .dlh-av { width: 38px; height: 38px; background: var(--g); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
-.dlh-rev-name { font-weight: 700; font-size: 13px; }
-.dlh-rev-stars { color: var(--g); font-size: 11px; }
+.dlh-rev-n { font-weight: 700; font-size: 13px; }
+.dlh-rev-s { color: var(--g); font-size: 11px; }
 .dlh-rev p { font-size: 13px; color: var(--gr); line-height: 1.6; }
-
-/* CTA BANNER */
-.dlh-cta-banner {
-  background: var(--g);
-  padding: 80px 40px;
-  text-align: center;
-}
-.dlh-cta-banner h2 { font-family: 'Outfit', sans-serif; font-size: 42px; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.1; }
-.dlh-cta-banner p { font-size: 16px; color: rgba(255,255,255,.8); margin-bottom: 36px; }
-.dlh-btn-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-  color: var(--g);
-  padding: 18px 40px;
-  border-radius: 50px;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  text-decoration: none;
-  transition: transform .2s, box-shadow .2s;
-  letter-spacing: .5px;
-}
-.dlh-btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
-.dlh-cta-trust { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+.dlh-cta-ban { background: var(--g); padding: 80px 40px; text-align: center; }
+.dlh-cta-ban h2 { font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 14px; line-height: 1.1; }
+.dlh-cta-ban p { font-size: 16px; color: rgba(255,255,255,.8); margin-bottom: 32px; }
+.dlh-btn-w { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--g); padding: 18px 40px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 16px; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.dlh-btn-w:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+.dlh-cta-trust { display: flex; gap: 24px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
 .dlh-cta-trust span { font-size: 13px; color: rgba(255,255,255,.75); }
 .dlh-cta-trust span::before { content: "‚úì "; }
-
-/* FOOTER */
-.dlh-footer {
-  background: #F7FAF9;
-  padding: 48px 40px 24px;
-  border-top: 1px solid #E0EDE8;
-}
-.dlh-footer-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-.dlh-footer-logo { margin-bottom: 12px; }
-.dlh-footer-tagline { font-size: 13px; color: var(--gr); line-height: 1.6; max-width: 240px; }
-.dlh-footer-col h5 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 14px; }
-.dlh-footer-col a { display: block; font-size: 13px; color: var(--gr); text-decoration: none; margin-bottom: 8px; }
-.dlh-footer-col a:hover { color: var(--g); }
-.dlh-footer-bottom {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 12px;
-  color: var(--gr);
-  border-top: 1px solid #E0EDE8;
-  padding-top: 20px;
-}
-
-/* RESPONSIVE */
+.dlh-foot { background: #F7FAF9; padding: 48px 40px 24px; border-top: 1px solid #E0EDE8; }
+.dlh-foot-grid { max-width: 1100px; margin: 0 auto 36px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.dlh-foot-tag { font-size: 13px; color: var(--gr); line-height: 1.6; max-width: 240px; margin-top: 10px; }
+.dlh-foot-col h5 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+.dlh-foot-col a { display: block; font-size: 13px; color: var(--gr); text-decoration: none; margin-bottom: 8px; }
+.dlh-foot-col a:hover { color: var(--g); }
+.dlh-foot-bot { max-width: 1100px; margin: 0 auto; text-align: center; font-size: 12px; color: var(--gr); border-top: 1px solid #E0EDE8; padding-top: 20px; }
 @media (max-width: 768px) {
   .dlh-hero { grid-template-columns: 1fr; padding: 32px 20px; min-height: auto; gap: 32px; }
-  .dlh-hero-text h1 { font-size: 36px; }
-  .dlh-features { grid-template-columns: 1fr; }
+  .dlh-hero h1 { font-size: 34px; }
+  .dlh-feats, .dlh-revs { grid-template-columns: 1fr; }
   .dlh-steps { grid-template-columns: 1fr 1fr; }
   .dlh-steps::before { display: none; }
-  .dlh-product-preview { grid-template-columns: 1fr; }
-  .dlh-revs { grid-template-columns: 1fr; }
-  .dlh-footer-grid { grid-template-columns: 1fr 1fr; }
-  .dlh-h2 { font-size: 28px; }
+  .dlh-prod { grid-template-columns: 1fr; }
+  .dlh-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
+  .dlh-gal:first-child { grid-row: auto; }
+  .dlh-foot-grid { grid-template-columns: 1fr 1fr; }
   .dlh-sec { padding: 56px 20px; }
-  .dlh-floating-badge { display: none; }
+  .dlh-h2 { font-size: 26px; }
+  .dlh-badge-float { display: none; }
 }
 </style>
 
-<div class="dlh-wrap">
+<div class="dlh">
 
-<!-- ANNOUNCEMENT -->
-<div class="dlh-ann">üöö Livraison gratuite d√®s 50 ‚Ç¨ &nbsp;|&nbsp; ‚úì Rembours√© sous 30 jours &nbsp;|&nbsp; ‚≠ê 4.8/5 clients satisfaits</div>
+<div class="dlh-ann">Livraison gratuite des 50 euros &nbsp;|&nbsp; Rembourse sous 30 jours &nbsp;|&nbsp; 4.8/5 clients satisfaits</div>
 
-<!-- HERO -->
 <div class="dlh-hero">
-  <div class="dlh-hero-text">
-    <div class="dlh-hero-pretitle">Nouveau ‚Äî Correcteur de posture intelligent</div>
-    <h1>Lib√©rez votre dos,<br>lib√©rez votre <em>vie</em></h1>
-    <p class="dlh-hero-sub">Une vibration douce. Pas d'appli. Pas de contrainte. Le DosLibre vous rappelle simplement de vous tenir droit, tout au long de la journ√©e.</p>
-    <div class="dlh-hero-btns">
-      <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-main">
-        D√©couvrir le produit ‚Üí
-      </a>
-      <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-sec">
-        Voir les offres
-      </a>
+  <div>
+    <div class="dlh-pretitle"><div class="dlh-dot"></div> Nouveau &mdash; Correcteur de posture intelligent</div>
+    <h1>Liberez votre dos,<br>liberez votre <em>vie</em></h1>
+    <p class="dlh-sub">Une vibration douce. Pas d&rsquo;appli. Pas de contrainte. Le DosLibre vous rappelle simplement de vous tenir droit, tout au long de la journee.</p>
+    <div class="dlh-btns">
+      <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn">Decouvrir le produit &rarr;</a>
+      <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-o">Voir les offres</a>
     </div>
-    <div class="dlh-trust-pills">
-      <span class="dlh-trust-pill">Sans application</span>
-      <span class="dlh-trust-pill">38 g ultra l√©ger</span>
-      <span class="dlh-trust-pill">R√©sultats en 3-6 semaines</span>
-      <span class="dlh-trust-pill">Rembours√© si insatisfait</span>
+    <div class="dlh-pills">
+      <span class="dlh-pill">Sans application</span>
+      <span class="dlh-pill">38 g ultra leger</span>
+      <span class="dlh-pill">Resultats en 3-6 semaines</span>
+      <span class="dlh-pill">Rembourse si insatisfait</span>
     </div>
   </div>
-
   <div class="dlh-hero-img">
     <div class="dlh-hero-card">
-      {%- for product in collections.all.products limit: 1 -%}
-        {%- if product.featured_image -%}
-          <img src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ product.title }}">
-        {%- else -%}
-          <svg viewBox="0 0 60 130" fill="none" width="200"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><rect x="24" y="54" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.7"/><rect x="24" y="66" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.55"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
-        {%- endif -%}
-      {%- endfor -%}
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Posture correcte">
     </div>
-    <div class="dlh-floating-badge top-left">
-      <div class="dlh-stars-small">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div>
-      <div class="dlh-badge-title">4.8 / 5</div>
-      <div class="dlh-badge-sub">clients satisfaits</div>
+    <div class="dlh-badge-float tl">
+      <div class="dlh-ss">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="dlh-bt">4.8 / 5</div>
+      <div class="dlh-bs">clients satisfaits</div>
     </div>
-    <div class="dlh-floating-badge bottom-right">
-      <div class="dlh-badge-title">‚úì Sans appli</div>
-      <div class="dlh-badge-sub">Pr√™t en 30 secondes</div>
+    <div class="dlh-badge-float br">
+      <div class="dlh-bt">Sans appli</div>
+      <div class="dlh-bs">Pret en 30 secondes</div>
     </div>
   </div>
 </div>
 
-<!-- TICKER -->
 <div class="dlh-ticker-wrap">
   <div class="dlh-ticker">
-    <span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les v√™tements</span><span>Livraison gratuite d√®s 50 ‚Ç¨</span><span>Rembours√© sous 30 jours</span><span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les v√™tements</span><span>Livraison gratuite d√®s 50 ‚Ç¨</span><span>Rembours√© sous 30 jours</span>
+    <span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vetements</span><span>Livraison gratuite des 50 euros</span><span>Rembourse sous 30 jours</span><span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vetements</span><span>Livraison gratuite des 50 euros</span><span>Rembourse sous 30 jours</span>
   </div>
 </div>
 
-<!-- FEATURES -->
 <section class="dlh-sec">
   <div class="dlh-cnt">
     <h2 class="dlh-h2">Pourquoi choisir <em>DosLibre ?</em></h2>
-    <p class="dlh-h2-sub">Simple, discret, efficace ‚Äî con√ßu pour s'int√©grer dans votre quotidien sans contrainte.</p>
-    <div class="dlh-features">
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">üì≥</div>
-        <h3>Vibration intelligente</h3>
-        <p>D√®s que vous vous vo√ªtez, une l√©g√®re vibration vous rappelle de vous redresser. Doux mais efficace.</p>
-      </div>
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">üìµ</div>
-        <h3>Z√©ro application</h3>
-        <p>Pas de smartphone, pas de compte, pas de configuration compliqu√©e. Un bouton, c'est tout.</p>
-      </div>
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">ü™∂</div>
-        <h3>Ultra discret</h3>
-        <p>38 g, invisible sous les v√™tements. Port√© au bureau, √† la maison ou en d√©placement.</p>
-      </div>
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">‚ö°</div>
-        <h3>15 jours d'autonomie</h3>
-        <p>Charge en 60 minutes via USB-C. Jusqu'√† 15 jours d'utilisation sans recharger.</p>
-      </div>
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">üéØ</div>
-        <h3>Personnalisable</h3>
-        <p>Enregistrez votre posture id√©ale en 2 secondes. L'appareil s'adapte √† votre morphologie.</p>
-      </div>
-      <div class="dlh-feat">
-        <div class="dlh-feat-icon">üõ°Ô∏è</div>
-        <h3>Rembours√© si insatisfait</h3>
-        <p>30 jours pour l'essayer. Si √ßa ne vous convient pas, on vous rembourse sans question.</p>
-      </div>
+    <p class="dlh-h2-sub">Simple, discret, efficace &mdash; concu pour s&rsquo;integrer dans votre quotidien.</p>
+    <div class="dlh-feats">
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#128243;</div><h3>Vibration intelligente</h3><p>Des que vous vous voutez, une legere vibration vous rappelle de vous redresser.</p></div>
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#128245;</div><h3>Zero application</h3><p>Pas de smartphone, pas de compte. Un bouton, c&rsquo;est tout.</p></div>
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#129718;</div><h3>Ultra discret</h3><p>38 g, invisible sous les vetements. Porte au bureau ou en deplacement.</p></div>
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#9889;</div><h3>15 jours d&rsquo;autonomie</h3><p>Charge en 60 minutes via USB-C. Jusqu&rsquo;a 15 jours sans recharger.</p></div>
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#127919;</div><h3>Personnalisable</h3><p>Enregistrez votre posture ideale en 2 secondes. S&rsquo;adapte a votre morphologie.</p></div>
+      <div class="dlh-feat"><div class="dlh-feat-ico">&#128737;</div><h3>Rembourse si insatisfait</h3><p>30 jours pour l&rsquo;essayer. Si ca ne convient pas, on vous rembourse.</p></div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="dlh-sec bg">
   <div class="dlh-cnt">
-    <h2 class="dlh-h2">Comment √ßa <em>fonctionne ?</em></h2>
-    <p class="dlh-h2-sub">En 4 √©tapes simples, votre posture se transforme progressivement.</p>
-    <div class="dlh-steps">
-      <div class="dlh-step-item">
-        <div class="dlh-step-num">1</div>
-        <h4>Fixez l'appareil</h4>
-        <p>Placez le DosLibre entre vos omoplates. Il tient en place naturellement.</p>
-      </div>
-      <div class="dlh-step-item">
-        <div class="dlh-step-num">2</div>
-        <h4>Enregistrez votre posture</h4>
-        <p>Tenez-vous droit, appuyez 2 secondes. Votre posture id√©ale est m√©moris√©e.</p>
-      </div>
-      <div class="dlh-step-item">
-        <div class="dlh-step-num">3</div>
-        <h4>Portez-le 30 min/jour</h4>
-        <p>√Ä chaque vo√ªtement, une vibration discr√®te vous rappelle de vous redresser.</p>
-      </div>
-      <div class="dlh-step-item">
-        <div class="dlh-step-num">4</div>
-        <h4>Constatez les r√©sultats</h4>
-        <p>En 3 √† 6 semaines, beaucoup de nos clients se redressent naturellement.</p>
-      </div>
+    <h2 class="dlh-h2">Une posture qui <em>change tout</em></h2>
+    <p class="dlh-h2-sub">Reprenez le controle de votre corps au quotidien.</p>
+    <div class="dlh-gallery">
+      <div class="dlh-gal"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Bonne posture au bureau"></div>
+      <div class="dlh-gal"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Bien-etre"></div>
+      <div class="dlh-gal"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=80" alt="Sport et sante"></div>
+      <div class="dlh-gal"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Exercice"></div>
+      <div class="dlh-gal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Yoga"></div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCT PREVIEW -->
 <section class="dlh-sec">
   <div class="dlh-cnt">
-    <div class="dlh-product-preview">
-      <div class="dlh-prod-img">
-        {%- for product in collections.all.products limit: 1 -%}
-          {%- if product.featured_image -%}
-            <img src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ product.title }}">
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-      <div class="dlh-prod-text">
-        <h2>Le correcteur qui <em>respecte votre corps</em></h2>
-        <p>Pas de promesses exag√©r√©es ‚Äî le DosLibre est un outil d'aide √† la conscience posturale. Il vous rappelle de vous redresser, c'est vous qui faites le travail.</p>
-        <div class="dlh-prod-points">
-          <div class="dlh-prod-point">Rappel par vibration douce, pas de correction forc√©e</div>
-          <div class="dlh-prod-point">TPU hypoallerg√©nique, confortable toute la journ√©e</div>
-          <div class="dlh-prod-point">R√©sistant aux √©claboussures IPX5</div>
-          <div class="dlh-prod-point">Pour tous les adultes, quel que soit l'√¢ge</div>
-          <div class="dlh-prod-point">Pas un dispositif m√©dical ‚Äî un outil du quotidien</div>
-        </div>
-        <div class="dlh-price-block">
-          <div>
-            <div class="dlh-price-from">√Ä partir de</div>
-            {%- for product in collections.all.products limit: 1 -%}
-              <div class="dlh-price">{{ product.price | money }}</div>
-            {%- endfor -%}
-          </div>
-        </div>
-        <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-main">Commander maintenant ‚Üí</a>
-      </div>
+    <h2 class="dlh-h2">Comment ca <em>fonctionne ?</em></h2>
+    <p class="dlh-h2-sub">En 4 etapes simples, votre posture se transforme progressivement.</p>
+    <div class="dlh-steps">
+      <div class="dlh-step"><div class="dlh-step-n">1</div><h4>Fixez l&rsquo;appareil</h4><p>Placez le DosLibre entre vos omoplates. Il tient en place naturellement.</p></div>
+      <div class="dlh-step"><div class="dlh-step-n">2</div><h4>Enregistrez votre posture</h4><p>Tenez-vous droit, appuyez 2 secondes. Votre posture ideale est memorisee.</p></div>
+      <div class="dlh-step"><div class="dlh-step-n">3</div><h4>Portez-le 30 min/jour</h4><p>A chaque voutement, une vibration discrete vous rappelle de vous redresser.</p></div>
+      <div class="dlh-step"><div class="dlh-step-n">4</div><h4>Constatez les resultats</h4><p>En 3 a 6 semaines, beaucoup de nos clients se redressent naturellement.</p></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section class="dlh-sec bg">
   <div class="dlh-cnt">
-    <h2 class="dlh-h2">Ce que disent <em>nos clients</em></h2>
-    <p class="dlh-h2-sub">Des retours honn√™tes de personnes qui utilisent le DosLibre au quotidien.</p>
-    <div class="dlh-revs">
-      <div class="dlh-rev">
-        <div class="dlh-rev-head"><div class="dlh-av">C</div><div><div class="dlh-rev-name">Claire D.</div><div class="dlh-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div>
-        <p>Je l'oublie compl√®tement sous mes v√™tements. Ma posture s'est nettement am√©lior√©e en un mois d'utilisation r√©guli√®re.</p>
+    <div class="dlh-prod">
+      <div class="dlh-prod-img">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80" alt="Correcteur de posture DosLibre">
       </div>
-      <div class="dlh-rev">
-        <div class="dlh-rev-head"><div class="dlh-av">J</div><div><div class="dlh-rev-name">Julien B.</div><div class="dlh-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div>
-        <p>Les vibrations sont douces mais efficaces. Pas besoin d'appli, c'est ce qui m'a convaincu. Je recommande !</p>
-      </div>
-      <div class="dlh-rev">
-        <div class="dlh-rev-head"><div class="dlh-av">S</div><div><div class="dlh-rev-name">Sophie M.</div><div class="dlh-rev-stars">‚òÖ‚òÖ‚òÖ‚òÖ‚òÖ</div></div></div>
-        <p>Apr√®s 2 semaines, mes douleurs ont diminu√©. Je me tiens naturellement droit sans y penser. Incroyable !</p>
+      <div class="dlh-prod-txt">
+        <h2>Le correcteur qui <em>respecte votre corps</em></h2>
+        <p>Pas de promesses exagerees &mdash; le DosLibre est un outil d&rsquo;aide a la conscience posturale. Il vous rappelle de vous redresser, c&rsquo;est vous qui faites le travail.</p>
+        <div class="dlh-pts">
+          <div class="dlh-pt">Rappel par vibration douce, pas de correction forcee</div>
+          <div class="dlh-pt">TPU hypoallergenique, confortable toute la journee</div>
+          <div class="dlh-pt">Resistant aux eclaboussures IPX5</div>
+          <div class="dlh-pt">Pour tous les adultes, quel que soit l&rsquo;age</div>
+        </div>
+        <div class="dlh-price-lbl">A partir de</div>
+        <div class="dlh-price-val">
+          {%- for product in collections.all.products limit:1 -%}{{ product.price | money }}{%- endfor -%}
+        </div>
+        <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn">Commander maintenant &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<div class="dlh-cta-banner">
-  <div style="max-width:700px;margin:0 auto;">
-    <h2>Pr√™t √† lib√©rer votre dos ?</h2>
-    <p>Rejoignez les personnes qui ont repris le contr√¥le de leur posture avec le DosLibre.</p>
-    <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-white">
-      Commander maintenant ‚Äî √Ä partir de 59,99 ‚Ç¨ ‚Üí
-    </a>
+<section class="dlh-sec">
+  <div class="dlh-cnt">
+    <h2 class="dlh-h2">Ce que disent <em>nos clients</em></h2>
+    <p class="dlh-h2-sub">Des retours honnetes de personnes qui utilisent le DosLibre au quotidien.</p>
+    <div class="dlh-revs">
+      <div class="dlh-rev"><div class="dlh-rev-h"><div class="dlh-av">C</div><div><div class="dlh-rev-n">Claire D.</div><div class="dlh-rev-s">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><p>Je l&rsquo;oublie completement sous mes vetements. Ma posture s&rsquo;est nettement amelioree en un mois.</p></div>
+      <div class="dlh-rev"><div class="dlh-rev-h"><div class="dlh-av">J</div><div><div class="dlh-rev-n">Julien B.</div><div class="dlh-rev-s">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><p>Les vibrations sont douces mais efficaces. Pas besoin d&rsquo;appli, c&rsquo;est ce qui m&rsquo;a convaincu !</p></div>
+      <div class="dlh-rev"><div class="dlh-rev-h"><div class="dlh-av">S</div><div><div class="dlh-rev-n">Sophie M.</div><div class="dlh-rev-s">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div><p>Apres 2 semaines, mes douleurs ont diminue. Je me tiens naturellement droit sans y penser.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="dlh-cta-ban">
+  <div style="max-width:680px;margin:0 auto;">
+    <h2>Pret a liberer votre dos ?</h2>
+    <p>Rejoignez les personnes qui ont repris le controle de leur posture avec le DosLibre.</p>
+    <a href="/products/correcteur-de-posture-intelligent" class="dlh-btn-w">Commander maintenant &rarr;</a>
     <div class="dlh-cta-trust">
-      <span>Livraison gratuite d√®s 50 ‚Ç¨</span>
-      <span>Rembours√© sous 30 jours</span>
-      <span>Paiement s√©curis√©</span>
+      <span>Livraison gratuite des 50 euros</span>
+      <span>Rembourse sous 30 jours</span>
+      <span>Paiement securise</span>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="dlh-footer">
-  <div class="dlh-footer-grid">
+<footer class="dlh-foot">
+  <div class="dlh-foot-grid">
     <div>
-      <div class="dlh-footer-logo">
-        <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" height="48">
-          <g transform="translate(50, 20)">
-            <ellipse cx="0" cy="14" rx="13" ry="14" fill="none" stroke="#1D9E75" stroke-width="2"/>
-            <line x1="0" y1="28" x2="0" y2="38" stroke="#1D9E75" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M-20 46 Q0 38 20 46" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
-            <line x1="0" y1="38" x2="0" y2="100" stroke="#1D9E75" stroke-width="2.2" stroke-linecap="round"/>
-            <rect x="-5" y="46" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.85"/>
-            <rect x="-5" y="56" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.7"/>
-            <rect x="-5" y="66" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.55"/>
-            <path d="M-16 102 Q0 108 16 102" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/>
-          </g>
-          <line x1="88" y1="24" x2="88" y2="158" stroke="#ddd" stroke-width="1"/>
-          <text x="102" y="100" font-family="Raleway, sans-serif" font-size="46" font-weight="700" fill="#111">Dos<tspan fill="#1D9E75">Libre</tspan></text>
-          <text x="102" y="126" font-family="Raleway, sans-serif" font-size="12" font-weight="300" fill="#888" letter-spacing="1">Votre posture, notre priorit√©</text>
-        </svg>
-      </div>
-      <p class="dlh-footer-tagline">Un outil simple pour reprendre conscience de votre dos et am√©liorer votre posture au quotidien.</p>
+      <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" height="48">
+        <g transform="translate(50,20)"><ellipse cx="0" cy="14" rx="13" ry="14" fill="none" stroke="#1D9E75" stroke-width="2"/><line x1="0" y1="28" x2="0" y2="38" stroke="#1D9E75" stroke-width="2.2" stroke-linecap="round"/><path d="M-20 46 Q0 38 20 46" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="38" x2="0" y2="100" stroke="#1D9E75" stroke-width="2.2" stroke-linecap="round"/><rect x="-5" y="46" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.85"/><rect x="-5" y="56" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.7"/><rect x="-5" y="66" width="10" height="5" rx="1.5" fill="#1D9E75" opacity="0.55"/><path d="M-16 102 Q0 108 16 102" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></g>
+        <line x1="88" y1="24" x2="88" y2="158" stroke="#ddd" stroke-width="1"/>
+        <text x="102" y="100" font-family="Raleway,sans-serif" font-size="46" font-weight="700" fill="#111">Dos<tspan fill="#1D9E75">Libre</tspan></text>
+        <text x="102" y="126" font-family="Raleway,sans-serif" font-size="12" font-weight="300" fill="#888" letter-spacing="1">Votre posture, notre priorite</text>
+      </svg>
+      <p class="dlh-foot-tag">Un outil simple pour reprendre conscience de votre dos et ameliorer votre posture au quotidien.</p>
     </div>
-    <div class="dlh-footer-col">
+    <div class="dlh-foot-col">
       <h5>Navigation</h5>
       <a href="/">Accueil</a>
       <a href="/products/correcteur-de-posture-intelligent">Notre produit</a>
-      <a href="/pages/a-propos">√Ä propos</a>
     </div>
-    <div class="dlh-footer-col">
+    <div class="dlh-foot-col">
       <h5>Service client</h5>
       <a href="/pages/faq">FAQ</a>
       <a href="/pages/livraison">Livraison</a>
       <a href="/pages/retours">Retours</a>
     </div>
-    <div class="dlh-footer-col">
+    <div class="dlh-foot-col">
       <h5>Contact</h5>
       <a href="mailto:contact@doslibre.com">contact@doslibre.com</a>
-      <a href="/pages/contact">Nous contacter</a>
-      <a href="/policies/privacy-policy">Confidentialit√©</a>
+      <a href="/policies/privacy-policy">Confidentialite</a>
     </div>
   </div>
-  <div class="dlh-footer-bottom">¬© 2026 DosLibre. Tous droits r√©serv√©s. ‚Äî <em>Votre posture, notre priorit√©.</em></div>
+  <div class="dlh-foot-bot">&copy; 2026 DosLibre. Tous droits reserves.</div>
 </footer>
 
 </div>
