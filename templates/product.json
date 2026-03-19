@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "doslibre-product",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,471 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;500;600&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+.dl-wrap *, .dl-wrap *::before, .dl-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.dl-wrap {
+  --g: #1D9E75;
+  --gd: #178A64;
+  --gbg: #EDF7F3;
+  --bk: #111111;
+  --gr: #666666;
+  --bd: #E0EDE8;
+  --wh: #FFFFFF;
+  font-family: 'Nunito Sans', sans-serif;
+  color: #111;
+  background: #fff;
+  overflow-x: hidden;
+}
+/* ANNOUNCEMENT */
+.dl-ann { background: var(--gbg); text-align: center; padding: 10px; font-size: 13px; color: var(--g); font-weight: 500; }
+/* HERO */
+.dl-hero { display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; padding: 40px 24px 60px; gap: 40px; }
+.dl-gallery {}
+.dl-main-img { background: #F4FAF7; border-radius: 16px; height: 460px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.dl-main-img img { width: 100%; height: 100%; object-fit: contain; padding: 24px; }
+.dl-thumbs { display: flex; gap: 10px; margin-top: 12px; }
+.dl-thumb { width: 68px; height: 68px; border-radius: 10px; border: 2px solid var(--bd); cursor: pointer; overflow: hidden; transition: border-color .2s; flex-shrink: 0; }
+.dl-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.dl-thumb.active { border-color: var(--g); }
+/* INFO */
+.dl-info {}
+.dl-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.dl-stars-ico { color: var(--g); font-size: 16px; }
+.dl-stars-txt { font-size: 12px; color: var(--gr); }
+.dl-info h1 { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+.dl-tag { font-size: 14px; color: var(--gr); margin-bottom: 18px; line-height: 1.6; }
+.dl-badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+.dl-badge { padding: 6px 12px; border: 1.5px solid var(--bd); border-radius: 8px; font-size: 12px; font-weight: 600; color: #111; }
+/* BUNDLE */
+.dl-bundle-lbl { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+.dl-bundles { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+.dl-bc { border: 2px solid var(--bd); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+.dl-bc:hover { border-color: #9CD4BF; }
+.dl-bc.on { border-color: var(--g); box-shadow: 0 0 0 1px var(--g); }
+.dl-bc-tag { font-size: 11px; font-weight: 700; color: var(--g); margin-bottom: 5px; }
+.dl-bc-tag.gold { color: #B8860B; }
+.dl-bc-row { display: flex; align-items: center; gap: 12px; }
+.dl-bc-icons { display: flex; align-items: center; min-width: 60px; }
+.dl-bc-icons svg { flex-shrink: 0; }
+.dl-bc-info { flex: 1; }
+.dl-bc-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+.dl-bc-pline { display: flex; align-items: baseline; gap: 6px; }
+.dl-bc-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 20px; }
+.dl-bc-unit { font-size: 11px; color: var(--gr); }
+.dl-bc-save { font-size: 12px; color: var(--g); font-weight: 600; margin-top: 2px; }
+.dl-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--bd); flex-shrink: 0; transition: all .2s; }
+.dl-bc.on .dl-radio { border-color: var(--g); background: var(--g); box-shadow: inset 0 0 0 3px #fff; }
+/* CTA */
+.dl-cta { display: block; width: 100%; padding: 17px; background: var(--g); color: #fff; border: none; border-radius: 50px; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .8px; cursor: pointer; transition: background .2s, transform .1s; margin-bottom: 14px; text-align: center; }
+.dl-cta:hover { background: var(--gd); transform: translateY(-1px); }
+.dl-trust { display: flex; gap: 10px; justify-content: center; font-size: 11px; color: var(--gr); margin-bottom: 12px; flex-wrap: wrap; }
+.dl-pays { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.dl-pay { padding: 3px 9px; border: 1px solid var(--bd); border-radius: 5px; font-size: 11px; font-weight: 600; color: #111; background: #fafafa; }
+/* ACCORDION */
+.dl-acc { margin-top: 18px; border-top: 1px solid var(--bd); }
+.dl-aci { border-bottom: 1px solid var(--bd); }
+.dl-ach { display: flex; justify-content: space-between; padding: 13px 0; cursor: pointer; font-weight: 600; font-size: 14px; }
+.dl-ach .ico { font-size: 20px; color: var(--gr); transition: transform .2s; }
+.dl-acb { display: none; padding: 0 0 13px; font-size: 13px; color: var(--gr); line-height: 1.6; }
+.dl-aci.on .dl-acb { display: block; }
+.dl-aci.on .dl-ach .ico { transform: rotate(45deg); }
+/* TICKER */
+.dl-ticker-wrap { overflow: hidden; background: #111; padding: 11px 0; }
+.dl-ticker { display: flex; gap: 48px; white-space: nowrap; animation: dl-tick 22s linear infinite; }
+.dl-ticker span { font-size: 13px; color: #fff; font-weight: 500; }
+.dl-ticker span::before { content: "★  "; color: var(--g); }
+@keyframes dl-tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* SECTIONS */
+.dl-sec { padding: 68px 24px; }
+.dl-sec.bg { background: var(--gbg); }
+.dl-cnt { max-width: 1100px; margin: 0 auto; }
+.dl-h2 { font-family: 'Outfit', sans-serif; text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 44px; }
+.dl-h2 em { color: var(--g); font-style: normal; }
+.dl-sub { text-align: center; color: var(--gr); font-size: 14px; margin-top: -32px; margin-bottom: 36px; }
+/* BENEFITS */
+.dl-bens { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.dl-bens-txt h2 { font-family: 'Outfit', sans-serif; font-size: 34px; font-weight: 800; line-height: 1.1; margin-bottom: 10px; }
+.dl-bens-txt h2 em { color: var(--g); font-style: italic; }
+.dl-bens-txt > p { color: var(--gr); font-size: 14px; margin-bottom: 24px; line-height: 1.6; }
+.dl-ben { display: flex; gap: 12px; margin-bottom: 18px; }
+.dl-ben-ico { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--g); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--g); font-weight: 700; font-size: 12px; margin-top: 2px; }
+.dl-ben h4 { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.dl-ben p { font-size: 13px; color: var(--gr); line-height: 1.5; }
+.dl-bens-img { background: #F4FAF7; border-radius: 20px; height: 460px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.dl-person { width: 140px; height: 300px; background: linear-gradient(160deg, #c0d8cc 0%, #a0c0b0 100%); border-radius: 90px; z-index: 1; }
+.dl-ring { position: absolute; top: 50%; right: -20px; transform: translateY(-50%); border-radius: 50%; border: 2px solid rgba(29,158,117,.2); animation: dl-pulse 2s ease-in-out infinite; }
+.dl-ring:nth-child(1) { width: 80px; height: 80px; }
+.dl-ring:nth-child(2) { width: 130px; height: 130px; animation-delay: .4s; right: -40px; }
+.dl-ring:nth-child(3) { width: 180px; height: 180px; animation-delay: .8s; right: -60px; }
+@keyframes dl-pulse { 0%,100% { opacity: .2; } 50% { opacity: .6; } }
+/* TIMELINE */
+.dl-tl { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.dl-steps { position: relative; padding-left: 28px; }
+.dl-steps::before { content: ''; position: absolute; left: 7px; top: 12px; bottom: 0; width: 2px; background: var(--bd); }
+.dl-step { position: relative; margin-bottom: 28px; }
+.dl-dot { position: absolute; left: -28px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--bd); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--bd); }
+.dl-dot.act { background: var(--g); box-shadow: 0 0 0 2px var(--g); }
+.dl-step h4 { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+.dl-step p { font-size: 13px; color: var(--gr); line-height: 1.6; }
+.dl-tl-img { background: #F4FAF7; border-radius: 20px; height: 380px; display: flex; align-items: center; justify-content: center; }
+/* HOW */
+.dl-how { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.dl-how-img { background: #111; border-radius: 20px; height: 400px; display: flex; align-items: center; justify-content: center; }
+.dl-how-txt h2 { font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 800; margin-bottom: 8px; }
+.dl-how-txt h2 span { color: var(--g); }
+.dl-how-txt > p { font-size: 14px; color: var(--gr); margin-bottom: 24px; }
+.dl-faq { border-bottom: 1px solid var(--bd); }
+.dl-faq-q { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; font-size: 14px; font-weight: 500; cursor: pointer; }
+.dl-plus { font-size: 18px; color: var(--gr); transition: transform .2s; flex-shrink: 0; }
+.dl-faq-a { display: none; padding: 0 0 13px; font-size: 13px; color: var(--gr); line-height: 1.6; }
+.dl-faq.on .dl-faq-a { display: block; }
+.dl-faq.on .dl-plus { transform: rotate(45deg); }
+/* COMPARE */
+.dl-cmp { max-width: 800px; margin: 0 auto; }
+.dl-cmp-hd { display: grid; grid-template-columns: 1fr 220px 150px; }
+.dl-cmp-col { padding: 16px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 15px; text-align: center; }
+.dl-cmp-col.us { background: var(--g); border-radius: 12px 12px 0 0; color: #fff; }
+.dl-cmp-row { display: grid; grid-template-columns: 1fr 220px 150px; border-bottom: 1px solid var(--bd); }
+.dl-c-lbl { padding: 14px 12px; font-size: 13px; font-weight: 500; display: flex; align-items: center; }
+.dl-c-chk { padding: 14px; display: flex; align-items: center; justify-content: center; }
+.dl-c-chk.us { background: rgba(29,158,117,.08); }
+.dl-yes { width: 26px; height: 26px; background: var(--g); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 12px; }
+.dl-no { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 12px; }
+/* STATS */
+.dl-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.dl-ba { border-radius: 20px; overflow: hidden; height: 420px; display: flex; }
+.dl-ba-h { flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; position: relative; }
+.dl-ba-h.bef { background: #ccc8c4; }
+.dl-ba-h.aft { background: #b8ccc4; }
+.dl-ba-lbl { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,.8); }
+.dl-ba-fig { width: 68px; height: 170px; border-radius: 34px; }
+.dl-fig-b { background: linear-gradient(160deg, #b0a0a0, #907878); transform: rotate(10deg) translateY(-8px); }
+.dl-fig-a { background: linear-gradient(160deg, #909090, #707070); }
+.dl-stats-txt h2 { font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+.dl-stats-txt h2 em { color: var(--g); font-style: italic; }
+.dl-stat { padding: 14px 0; border-bottom: 1px solid var(--bd); }
+.dl-stat-t { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+.dl-stat-d { font-size: 13px; color: var(--gr); line-height: 1.5; }
+.dl-disc { margin-top: 14px; background: var(--gbg); border-radius: 10px; padding: 11px 13px; font-size: 12px; color: var(--gr); }
+/* REVIEWS */
+.dl-revs { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+.dl-revs::-webkit-scrollbar { height: 4px; }
+.dl-revs::-webkit-scrollbar-thumb { background: var(--bd); border-radius: 2px; }
+.dl-rev { min-width: 260px; background: var(--gbg); border-radius: 14px; padding: 16px; scroll-snap-align: start; flex-shrink: 0; font-size: 13px; color: var(--gr); line-height: 1.6; }
+.dl-rev-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.dl-av { width: 36px; height: 36px; background: var(--g); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.dl-rev-name { font-weight: 700; font-size: 13px; color: #111; }
+.dl-rev-stars { color: var(--g); font-size: 11px; }
+/* FAQ */
+.dl-faqs { max-width: 720px; margin: 0 auto; }
+/* STICKY */
+.dl-sticky { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--bd); padding: 11px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 9999; box-shadow: 0 -4px 20px rgba(0,0,0,.07); }
+.dl-sticky-l { display: flex; align-items: center; gap: 10px; }
+.dl-sticky-ico { width: 34px; height: 34px; background: var(--gbg); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.dl-sticky-t { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px; }
+.dl-sticky-p { color: var(--g); font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 15px; }
+.dl-sticky-btn { background: var(--g); color: #fff; border: none; padding: 12px 26px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; transition: background .2s; }
+.dl-sticky-btn:hover { background: var(--gd); }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .dl-hero { grid-template-columns: 1fr; padding: 20px 16px 40px; gap: 24px; }
+  .dl-bens, .dl-tl, .dl-how, .dl-stats { grid-template-columns: 1fr; }
+  .dl-bens-img, .dl-tl-img, .dl-how-img { height: 240px; }
+  .dl-cmp-hd, .dl-cmp-row { grid-template-columns: 1fr 120px 100px; }
+  .dl-h2 { font-size: 24px; }
+  .dl-info h1 { font-size: 26px; }
+  .dl-sticky { padding: 10px 14px; }
+  .dl-sticky-t { font-size: 12px; }
+}
+</style>
+
+<div class="dl-wrap">
+
+<!-- BARRE ANNONCE -->
+<div class="dl-ann">🚚 Livraison gratuite dès 50 € &nbsp;|&nbsp; Remboursé sous 30 jours si pas satisfait</div>
+
+<!-- HERO PRODUIT -->
+<div class="dl-hero">
+  <div class="dl-gallery">
+    <div class="dl-main-img">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | img_url: '800x800' }}" alt="{{ product.title }}" id="dl-main-photo">
+      {%- else -%}
+        <svg viewBox="0 0 60 130" fill="none" width="160"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><rect x="24" y="54" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.7"/><rect x="24" y="66" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.55"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+      {%- endif -%}
+    </div>
+    {%- if product.images.size > 1 -%}
+    <div class="dl-thumbs">
+      {%- for img in product.images limit: 5 -%}
+        <div class="dl-thumb {% if forloop.first %}active{% endif %}" onclick="dlImg('{{ img | img_url: '800x800' }}',this)">
+          <img src="{{ img | img_url: '150x150' }}" alt="{{ product.title }}">
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+
+  <div class="dl-info">
+    <div class="dl-stars">
+      <span class="dl-stars-ico">★★★★★</span>
+      <span class="dl-stars-txt">Noté 4.8 — clients satisfaits</span>
+    </div>
+    <h1>{{ product.title }}</h1>
+    <p class="dl-tag">Un appareil discret qui vibre doucement pour vous rappeler de vous tenir droit — sans appli, sans contrainte. Beaucoup de nos clients constatent une vraie différence après quelques semaines d'utilisation régulière.</p>
+    <div class="dl-badges">
+      <div class="dl-badge">✓ Rappel par vibration</div>
+      <div class="dl-badge">✓ Sans application</div>
+      <div class="dl-badge">✓ Discret sous les vêtements</div>
+      <div class="dl-badge">✓ 38 g ultra léger</div>
+      <div class="dl-badge">✓ Tous âges</div>
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="dl-bundle-lbl">Choisissez votre offre :</div>
+    <div class="dl-bundles">
+
+      <div class="dl-bc" onclick="dlBundle(this,1)" data-qty="1">
+        <div class="dl-bc-row">
+          <div class="dl-bc-icons">
+            <svg viewBox="0 0 60 130" fill="none" width="34"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dl-bc-info">
+            <div class="dl-bc-name">× 1 — Pour moi</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p1">{{ product.price | money }}</span><span class="dl-bc-unit">/ unité</span></div>
+          </div>
+          <div class="dl-radio"></div>
+        </div>
+      </div>
+
+      <div class="dl-bc on" onclick="dlBundle(this,2)" data-qty="2">
+        <div class="dl-bc-tag">⭐ Le plus populaire</div>
+        <div class="dl-bc-row">
+          <div class="dl-bc-icons">
+            <svg viewBox="0 0 60 130" fill="none" width="26"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 60 130" fill="none" width="26"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dl-bc-info">
+            <div class="dl-bc-name">× 2 — Moi + un proche</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p2">—</span><span class="dl-bc-unit">soit -17% / unité</span></div>
+            <div class="dl-bc-save">🎁 Tu économises sur chaque unité</div>
+          </div>
+          <div class="dl-radio" style="border-color:#1D9E75;background:#1D9E75;box-shadow:inset 0 0 0 3px #fff;"></div>
+        </div>
+      </div>
+
+      <div class="dl-bc" onclick="dlBundle(this,3)" data-qty="3">
+        <div class="dl-bc-tag gold">🔥 Meilleure valeur</div>
+        <div class="dl-bc-row">
+          <div class="dl-bc-icons">
+            <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dl-bc-info">
+            <div class="dl-bc-name">× 3 — Toute la famille</div>
+            <div class="dl-bc-pline"><span class="dl-bc-price" id="dl-p3">—</span><span class="dl-bc-unit">soit -28% / unité</span></div>
+            <div class="dl-bc-save">🎁 Maximum d'économies</div>
+          </div>
+          <div class="dl-radio"></div>
+        </div>
+      </div>
+
+    </div>
+
+    {%- form 'product', product, id: 'dl-form' -%}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="quantity" id="dl-qty" value="2">
+      <button type="submit" class="dl-cta" id="dl-cta-btn">
+        AJOUTER AU PANIER — <span id="dl-cta-p">{{ product.price | money }}</span>
+      </button>
+    {%- endform -%}
+
+    <div class="dl-trust">
+      <span>✓ Satisfait ou remboursé 30 jours</span>
+      <span>✓ Livraison sécurisée</span>
+      <span>✓ Service réactif</span>
+    </div>
+    <div class="dl-pays">
+      <span class="dl-pay">Visa</span><span class="dl-pay">Mastercard</span><span class="dl-pay">Apple Pay</span><span class="dl-pay">Google Pay</span><span class="dl-pay">Klarna</span>
+    </div>
+
+    <div class="dl-acc">
+      <div class="dl-aci on">
+        <div class="dl-ach" onclick="this.parentElement.classList.toggle('on')">Description <span class="ico">+</span></div>
+        <div class="dl-acb">{{ product.description }}</div>
+      </div>
+      <div class="dl-aci">
+        <div class="dl-ach" onclick="this.parentElement.classList.toggle('on')">Spécifications <span class="ico">+</span></div>
+        <div class="dl-acb">Poids : 38 g — Batterie : 15 jours — Charge : USB-C — Matériau : TPU hypoallergénique — Résistance : IPX5</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="dl-ticker-wrap">
+  <div class="dl-ticker">
+    <span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vêtements</span><span>Livraison gratuite dès 50 €</span><span>Remboursé sous 30 jours</span><span>Mise en route en 30 secondes</span><span>Sans application ni smartphone</span><span>Discret sous les vêtements</span><span>Livraison gratuite dès 50 €</span><span>Remboursé sous 30 jours</span>
+  </div>
+</div>
+
+<!-- BÉNÉFICES -->
+<section class="dl-sec">
+  <div class="dl-cnt">
+    <div class="dl-bens">
+      <div class="dl-bens-txt">
+        <h2>Un outil simple pour reprendre conscience <em>de votre dos</em></h2>
+        <p>La mauvaise posture s'installe progressivement. Le DosLibre ne fait pas de miracles — il vous rappelle simplement, tout au long de la journée, de vous redresser.</p>
+        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Un rappel en douceur</h4><p>Le capteur détecte quand vous vous voûtez et envoie une légère vibration. C'est vous qui redressez.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Zéro appli, zéro prise de tête</h4><p>Appuyez 2 secondes sur le bouton pour enregistrer votre posture idéale. C'est tout.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>Invisible sous les vêtements</h4><p>38 g, fin et discret. Porté au bureau ou à la maison sans que personne ne le remarque.</p></div></div>
+        <div class="dl-ben"><div class="dl-ben-ico">✓</div><div><h4>La régularité fait la différence</h4><p>30 à 60 min par jour. Beaucoup de nos clients remarquent un changement en 3 à 6 semaines.</p></div></div>
+      </div>
+      <div class="dl-bens-img">
+        <div class="dl-ring"></div><div class="dl-ring"></div><div class="dl-ring"></div>
+        <div class="dl-person"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="dl-sec">
+  <div class="dl-cnt">
+    <h2 class="dl-h2">Votre progression, <em>étape par étape</em></h2>
+    <div class="dl-tl">
+      <div class="dl-steps">
+        <div class="dl-step"><div class="dl-dot act"></div><h4>Jour 1</h4><p>Enregistrez votre posture idéale en appuyant sur le bouton. Prêt en moins de 30 secondes.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Jours 2 à 7</h4><p>Portez le DosLibre 30 à 60 min/jour. Les vibrations vous aident à prendre conscience de vos habitudes.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Semaines 2 à 3</h4><p>Vos muscles dorsaux se renforcent. Vous vous redressez instinctivement, même sans l'appareil.</p></div>
+        <div class="dl-step"><div class="dl-dot"></div><h4>Semaine 4+</h4><p>Votre posture s'améliore progressivement. Moins de tensions, plus d'énergie au quotidien.</p></div>
+      </div>
+      <div class="dl-tl-img">
+        <svg viewBox="0 0 60 130" fill="none" width="130"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><rect x="24" y="54" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.7"/><rect x="24" y="66" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.55"/><rect x="24" y="78" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.4"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT UTILISER -->
+<section class="dl-sec bg">
+  <div class="dl-cnt">
+    <div class="dl-how">
+      <div class="dl-how-img">
+        <svg viewBox="0 0 60 130" fill="none" width="150"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M10 40 Q30 30 50 40" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><rect x="24" y="42" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.85"/><rect x="24" y="54" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.7"/><rect x="24" y="66" width="12" height="6" rx="2" fill="#1D9E75" opacity="0.55"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dl-how-txt">
+        <h2>Comment utiliser <span>votre DosLibre ?</span></h2>
+        <p>Mise en route en moins de 30 secondes. Aucune technologie complexe.</p>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Comment enregistrer ma posture ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Mettez-vous droit, puis appuyez sur le bouton central 2 secondes. Une vibration confirme l'enregistrement.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Où fixer l'appareil sur le dos ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Placez-le entre vos omoplates, contre la colonne vertébrale.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Comment charger l'appareil ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Via le câble USB-C fourni. Charge complète en 60 min pour 15 jours d'autonomie.</div></div>
+        <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Combien de temps le porter par jour ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Commencez par 30 min/jour, augmentez progressivement jusqu'à 2-3 heures.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIF -->
+<section class="dl-sec">
+  <div class="dl-cnt">
+    <h2 class="dl-h2">DosLibre vs. Les Autres <em>Correcteurs</em></h2>
+    <p class="dl-sub">Voyez pourquoi le DosLibre est la solution la plus intelligente du marché.</p>
+    <div class="dl-cmp">
+      <div class="dl-cmp-hd"><div></div><div class="dl-cmp-col us">DosLibre<div style="font-size:11px;font-weight:400;opacity:.8;margin-top:2px;">✓ Original</div></div><div class="dl-cmp-col">Autres</div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Rappel postural en temps réel</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Aucune application requise</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Vibrations personnalisées</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Design discret sous les vêtements</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+      <div class="dl-cmp-row"><div class="dl-c-lbl">Résultats constatés en 3-6 semaines</div><div class="dl-c-chk us"><div class="dl-yes">✓</div></div><div class="dl-c-chk"><div class="dl-no">✗</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="dl-sec">
+  <div class="dl-cnt">
+    <h2 class="dl-h2" style="margin-bottom:28px;">Ce que disent nos clients</h2>
+    <div class="dl-revs">
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">C</div><div><div class="dl-rev-name">Claire D.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Je l'oublie complètement sous mes vêtements. Ma posture s'est nettement améliorée en un mois.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">J</div><div><div class="dl-rev-name">Julien B.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Les vibrations sont douces mais efficaces. Je recommande vivement !</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">S</div><div><div class="dl-rev-name">Sophie M.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Après 2 semaines, mes douleurs ont diminué. Je me tiens naturellement droit sans y penser.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">T</div><div><div class="dl-rev-name">Thomas R.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Pas besoin d'appli, c'est ce qui m'a convaincu. En une semaine j'avais déjà une meilleure posture.</p></div>
+      <div class="dl-rev"><div class="dl-rev-h"><div class="dl-av">A</div><div><div class="dl-rev-name">Amina K.</div><div class="dl-rev-stars">★★★★★</div></div></div><p>Produit discret, efficace, livraison rapide. Exactement ce que je cherchais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="dl-sec">
+  <div class="dl-cnt">
+    <h2 class="dl-h2">Questions Fréquentes</h2>
+    <p class="dl-sub">Tout ce que vous devez savoir avant d'acheter.</p>
+    <div class="dl-faqs">
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Faut-il télécharger une application ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Non ! Aucune application, aucun smartphone nécessaire. Il fonctionne de manière totalement autonome.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Est-il confortable à porter toute la journée ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Oui. Ultra léger (38 g), en TPU hypoallergénique, il s'oublie sous les vêtements.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">En combien de temps voit-on des résultats ?<span class="dl-plus">+</span></div><div class="dl-faq-a">La plupart constatent une amélioration en 3 à 6 semaines d'utilisation régulière. Les résultats varient selon les personnes.</div></div>
+      <div class="dl-faq"><div class="dl-faq-q" onclick="this.parentElement.classList.toggle('on')">Pour quelle tranche d'âge est-il conçu ?<span class="dl-plus">+</span></div><div class="dl-faq-a">Pour tous les adultes, quel que soit l'âge — jeunes actifs comme seniors.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BARRE STICKY -->
+<div class="dl-sticky">
+  <div class="dl-sticky-l">
+    <div class="dl-sticky-ico">
+      <svg viewBox="0 0 60 130" fill="none" width="20"><ellipse cx="30" cy="10" rx="10" ry="11" fill="none" stroke="#1D9E75" stroke-width="3"/><line x1="30" y1="21" x2="30" y2="32" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="32" x2="30" y2="100" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/><path d="M16 102 Q30 110 44 102" fill="none" stroke="#1D9E75" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="dl-sticky-t">{{ product.title }} — <span id="dl-sqty">2 appareils</span></div>
+      <div class="dl-sticky-p" id="dl-sp">{{ product.price | money }}</div>
+    </div>
+  </div>
+  <button class="dl-sticky-btn" onclick="document.getElementById('dl-cta-btn').scrollIntoView({behavior:'smooth'})">AJOUTER AU PANIER</button>
+</div>
+
+</div>
+
+<script>
+var dlUp = {{ product.price }};
+function dlFmt(c){return(c/100).toFixed(2).replace('.',',')+' €';}
+document.addEventListener('DOMContentLoaded',function(){
+  var p2=dlFmt(Math.round(dlUp*2*0.83));
+  var p3=dlFmt(Math.round(dlUp*3*0.72));
+  var e2=document.getElementById('dl-p2');
+  var e3=document.getElementById('dl-p3');
+  if(e2)e2.textContent=p2;
+  if(e3)e3.textContent=p3;
+  var ctaEl=document.getElementById('dl-cta-p');
+  if(ctaEl)ctaEl.textContent=p2;
+  var spEl=document.getElementById('dl-sp');
+  if(spEl)spEl.textContent=p2;
+});
+function dlBundle(card,qty){
+  document.querySelectorAll('.dl-bc').forEach(function(c){
+    c.classList.remove('on');
+    var r=c.querySelector('.dl-radio');
+    if(r){r.style.borderColor='';r.style.background='';r.style.boxShadow='';}
+  });
+  card.classList.add('on');
+  var radio=card.querySelector('.dl-radio');
+  if(radio){radio.style.borderColor='#1D9E75';radio.style.background='#1D9E75';radio.style.boxShadow='inset 0 0 0 3px #fff';}
+  var qtyEl=document.getElementById('dl-qty');
+  if(qtyEl)qtyEl.value=qty;
+  var disc={1:1.0,2:0.83,3:0.72};
+  var total=dlFmt(Math.round(dlUp*qty*disc[qty]));
+  var cp=document.getElementById('dl-cta-p');
+  if(cp)cp.textContent=total;
+  var labels={1:'1 appareil',2:'2 appareils',3:'3 appareils'};
+  var sq=document.getElementById('dl-sqty');
+  var sp=document.getElementById('dl-sp');
+  if(sq)sq.textContent=labels[qty];
+  if(sp)sp.textContent=total;
+}
+function dlImg(url,thumb){
+  var img=document.getElementById('dl-main-photo');
+  if(img)img.src=url;
+  document.querySelectorAll('.dl-thumb').forEach(function(x){x.classList.remove('active');});
+  thumb.classList.add('active');
+}
+</script>
