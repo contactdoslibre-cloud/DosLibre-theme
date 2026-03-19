@@ -1,4 +1,4 @@
-<<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;500;600&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -8,7 +8,15 @@
   font-family: 'Nunito Sans', sans-serif;
   color: #111; background: #fff; overflow-x: hidden;
 }
-.dlh-ann { background: var(--g); text-align: center; padding: 10px; font-size: 13px; color: #fff; font-weight: 500; }
+.dlh-ann { background: #1D9E75; text-align: center; padding: 9px; font-size: 13px; color: #fff; font-weight: 500; }
+.dlh-header { background: #fff; border-bottom: 1.5px solid #E0EDE8; padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 999; }
+.dlh-header-logo img { height: 54px; width: auto; }
+.dlh-header-nav { display: flex; gap: 32px; }
+.dlh-header-nav a { text-decoration: none; color: #111; font-size: 14px; font-weight: 600; transition: color .2s; }
+.dlh-header-nav a:hover { color: #1D9E75; }
+.dlh-header-btn { background: #1D9E75; color: #fff; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; text-decoration: none; transition: background .2s; }
+.dlh-header-btn:hover { background: #178A64; }
+@media (max-width: 768px) { .dlh-header { padding: 0 16px; } .dlh-header-nav { display: none; } .dlh-header-logo img { height: 38px; } }
 .dlh-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; max-width: 1200px; margin: 0 auto; padding: 70px 40px; gap: 60px; min-height: 90vh; }
 .dlh-pretitle { display: inline-flex; align-items: center; gap: 8px; background: var(--gbg); color: var(--g); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 50px; margin-bottom: 24px; letter-spacing: .5px; }
 .dlh-dot { width: 8px; height: 8px; background: var(--g); border-radius: 50%; animation: dlh-blink 2s infinite; }
@@ -113,7 +121,22 @@
 
 <div class="dlh">
 
-<div class="dlh-ann">Livraison gratuite des 50 euros &nbsp;|&nbsp; Rembourse sous 30 jours &nbsp;|&nbsp; 4.8/5 clients satisfaits</div>
+<!-- HEADER -->
+<header class="dlh-header">
+  <div class="dlh-header-logo">
+    <img src="{{ 'doslibre-logo-banniere.svg' | asset_url }}" alt="DosLibre">
+  </div>
+  <nav class="dlh-header-nav">
+    <a href="/">Accueil</a>
+    <a href="/collections/all">Boutique</a>
+    <a href="/pages/faq">FAQ</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
+  <a href="/products/correcteur-de-posture-intelligent" class="dlh-header-btn">Commander</a>
+</header>
+
+<!-- ANNONCE -->
+<div class="dlh-ann">&#x1F69A; Livraison gratuite d&egrave;s 50&euro; &nbsp;|&nbsp; &#x2713; Rembours&eacute; sous 30 jours &nbsp;|&nbsp; &#x2B50; 4.8/5 clients satisfaits</div>
 
 <div class="dlh-hero">
   <div>
